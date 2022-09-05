@@ -28,12 +28,6 @@ resultsContainer.innerHTML = "<p>New paragraph</p>";
 resultsContainer.style.backgroundColor = "yellow";
 
 //Question 7
-//Create a function that has one paramenter called list.
-//Inside the function, loop through the list paramenter and console log
-//the name property in each object
-//Call the function and pass in the cats variable in the script.js
-//file in the repo
-
 const cats = [
   {
     name: "Blob",
@@ -48,11 +42,18 @@ const cats = [
   },
 ];
 
+function listOfCats(list) {
+  for (let i = 0; i < list.length; i++) {
+    console.log(list[i].name);
+  }
+}
+listOfCats(cats);
+
 //Question 8
 //Create a function called createCats. The functions will have one paramenter
 //called cats. Inside the function loop through the value passed in as cats
 //and create HTML for each object in the array.
-//Wrap each item in a dic, each name property in an h5 tag and each age
+//Wrap each item in a div, each name property in an h5 tag and each age
 //property in a p tag
 //If the age property is missing it should display "age unknown" insted
 //Return the HTML from the function
