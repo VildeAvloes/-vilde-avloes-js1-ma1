@@ -1,3 +1,17 @@
+const cats = [
+  {
+    name: "Blob",
+    age: 10,
+  },
+  {
+    name: "Harold",
+  },
+  {
+    name: "Blurt",
+    age: 21,
+  },
+];
+
 //Question 1
 const cat = {
   complain: "Meow!",
@@ -28,20 +42,6 @@ resultsContainer.innerHTML = "<p>New paragraph</p>";
 resultsContainer.style.backgroundColor = "yellow";
 
 //Question 7
-const cats = [
-  {
-    name: "Blob",
-    age: 10,
-  },
-  {
-    name: "Harold",
-  },
-  {
-    name: "Blurt",
-    age: 21,
-  },
-];
-
 function listOfCats(list) {
   for (let i = 0; i < list.length; i++) {
     console.log(list[i].name);
@@ -50,13 +50,27 @@ function listOfCats(list) {
 listOfCats(cats);
 
 //Question 8
-//Create a function called createCats. The functions will have one paramenter
-//called cats. Inside the function loop through the value passed in as cats
-//and create HTML for each object in the array.
-//Wrap each item in a div, each name property in an h5 tag and each age
-//property in a p tag
-//If the age property is missing it should display "age unknown" insted
-//Return the HTML from the function
-//Call the function and pass in the cats array as the argument.
-//Assign the return value of the function to the innerHTML property of the
-//element on the HTML page with a class of cat-container.
+
+function createCats(cats) {
+  let html = "";
+
+  for (let i = 0; i < cats.length; i++) {
+    let catsAge = "Unknown age";
+
+    if (cats[i].age) {
+      catsAge = cats[i].age;
+    }
+
+    html += `<div>
+                <h5>Name: ${cats[i].name}</h5>
+                <p>Age: ${catsAge}</p>
+            </div>`;
+  }
+
+  return html;
+}
+
+const newHTML = createCats(cats);
+
+const catContainer = document.querySelector(".cat-container");
+catContainer.innerHTML = newHTML;
